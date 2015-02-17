@@ -38,7 +38,7 @@ class PaymentController < ApplicationController
       :OrderTotal => {
         :currencyID => "USD",
         :value => "8.27" },
-      :NotifyURL => "http://ruby-paypaldemo.rhcloud.com/payment/invoice" }] } })
+      :NotifyURL => "http://paypaldemo.herokuapp.com/payment/invoice" }] } })
 
 # Make API call & get response
 @do_express_checkout_payment_response = @api.do_express_checkout_payment(@do_express_checkout_payment)
@@ -73,8 +73,8 @@ PayPal::SDK.configure({
   @set_express_checkout = @api.build_set_express_checkout({
  	:Version => "104.0",
 	:SetExpressCheckoutRequestDetails => {
-    :ReturnURL => "http://ruby-paypaldemo.rhcloud.com/payment/get_express_checkout",
-    :CancelURL => "http://ruby-paypaldemo.rhcloud.com/payment/index",
+    :ReturnURL => "http://paypaldemo.herokuapp.com/payment/get_express_checkout",
+    :CancelURL => "http://paypaldemo.herokuapp.com/payment/index",
 :PaymentDetails => [{
       :OrderTotal => {
         :currencyID => "USD",
@@ -88,7 +88,7 @@ PayPal::SDK.configure({
       :TaxTotal => {
         :currencyID => "USD",
         :value => "0" },
-      :NotifyURL => "http://ruby-paypaldemo.rhcloud.com/payment/new",
+      :NotifyURL => "http://paypaldemo.herokuapp.com/payment/new",
       :ShipToAddress => {
         :Name => "John Doe",
         :Street1 => "1 Main St",
@@ -115,7 +115,7 @@ PayPal::SDK.configure({
     if @set_express_checkout_response.success?
       redirect_to  'https://www.sandbox.paypal.com/webscr?cmd=_express-checkout&token=' + a.token
 else
-      redirect_to "ruby-paypaldemo.rhcloud.com/index"
+      redirect_to "http://paypaldemo.herokuapp.com/index"
 end
    
   end
