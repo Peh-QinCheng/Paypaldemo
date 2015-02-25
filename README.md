@@ -1,7 +1,7 @@
 # Paypaldemo
 
 
-Written explanation for Paypal api call
+## Introduction
 
 I chose to use ruby on rails for the website and integration with Paypal’s express checkout api. 
 
@@ -16,6 +16,7 @@ The models used in this website are:
 1. Checkout model : stores token and payerID
 2. Confirmdetails model : stores payment status and amount paid. Used in invoice. 
 
+## API Calls
 
 These 3 API call are nested in methods within the main controller of the website: payment_controller.rb. 
 
